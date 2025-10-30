@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: ngo-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: "rzp_test_RYUr2mY3sxAXZp"
+        sync: false
+      - key: "VMNTxz44erzRZlOtlkipwuAo"
+        sync: false
+    plan: free
+
+  - type: web
+    name: ngo-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
+    plan: free
